@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body {
+    font-family:'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .slider {
+    position:relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 40px;
+    background-color: #f3f3f3;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  img{
+    width:300px;
+    height:350px;
+    object-fit: cover;
+  }
+  .start{
+    left:34.5%;
+    bottom:4px;
+    position:absolute;
+    border:none;
+    border-radius: 5px;
+    display:block;
+    width:30%;
+    font-size:20px;
+    padding: 5px 20px;
+    color:black;
+    background-color: pink;
+  }
+
+  .start:hover{
+    background-color: rgb(189, 120, 131);
+    color:white;
+  }
+
+  .start:active{
+    opacity:0.6;
+    transition: opacity 1s ease;/* сам переход*/
+  }
+  .start.fade-out{
+    opacity:0;/* Анимация исчезновения кнопки*/
+  }
+
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="slides">
+      <div class="slide">
+        <img src="pictures/slide1.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide2.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide3.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide4.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide5.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide6.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide7.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide8.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide9.jpg">
+      </div>
+      <div class="slide">
+        <img src="pictures/slide10.jpg">
+      </div>
+
+      <button class="start">♱ S t a r t ? ♱</button>
+      
+  </div>  
+</div>
+<script>
+  const slides = document.querySelector('.slides');
+  const slide = document.querySelectorAll('.slide');
+  const startBtn = document.querySelector('.start');
+
+  startBtn.addEventListener('click', startSlideShow);
+
+  let index = 0;
+  let interval;
+
+  function showSlide(n) {
+    index += n;
+    if (index < 0) index = slide.length - 1; // на последний перемещается
+    if (index >= slide.length) { //если все слайды закончились
+      clearInterval(interval);
+      index = slide.length - 1; // остаемся на последнем слайде
+      return; // чтобы не продолжалось дальнейшее выполнение кода нужно писать просто return;
+    }
+    slides.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  function startSlideShow(){
+    interval = setInterval(()=>{
+      showSlide(1);
+    }, 2000) //так как у нас повторяется перелистывание слайдов нужен интервал
+
+    startBtn.classList.add('fade-out'); // Анимация исчезновения кнопки
+
+    setTimeout(()=>{
+      startBtn.style.display = 'none'
+    },1000);// Удаление кнопки 
+  }
+</script>
+</body>
+</html>

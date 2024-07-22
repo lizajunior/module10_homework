@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      margin: 20px;
+    }
+
+    #input {
+      outline: none;
+      width: 200px;
+      padding: 0.5em;
+      border-radius: 20px;
+      border: 2px solid green;
+    }
+
+    #output {
+      font-weight: 500;
+      color: darkgreen;
+    }
+
+    .error-border {
+      border: 2px solid red !important;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <input id="input" type="text" placeholder="Введите сообщение..." />
+    <p id="output"></p>
+    <p id="error-message" class="error-message"></p>
+  </div>
+
+
+  <script>
+    const input = document.querySelector("#input");
+    const output = document.querySelector("#output");
+    const errorMessage = document.querySelector("#error-message");
+
+    const inputHandler = (e) => {
+      const value = e.target.value;
+      if (value.length > 8) {
+        input.classList.add('error-border');
+        errorMessage.textContent = 'Максимальная длина 8 букв'; // заполняем пустой параграф
+      } else {
+        input.classList.remove('error-border');
+        errorMessage.textContent = '';
+        output.textContent = value;
+      }
+    };
+
+    input.addEventListener('input', inputHandler);
+  </script>
+</body>
+</html>

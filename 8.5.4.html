@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // const stopWatch = (second = 0) => {
+    //   const timer = setInterval(() => {
+    //     if (second <= 60) {
+    //       console.log(second);
+    //       second++;
+    //     } else {
+    //       clearInterval(timer);
+    //       console.log('минута прошла!');
+    //     }
+    //   }, 1000);
+    // };
+    // stopWatch();
+
+
+    const stopWatch = () => {
+    let second = 0;
+
+    const timer = setInterval(() => {
+      if (second < 60) {
+        console.log(second);
+        second++;
+      } else {
+        console.log('Прошла минута, обнуляем счетчик!');
+        second = 0; // Обнуление счетчика после минуты
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+      console.log('Секундомер остановлен и обнулен.');
+    };
+  };
+
+  const stop = stopWatch();
+
+  // Для остановки секундомера вызови функцию stop(), например через 65 секунд:
+  setTimeout(stop, 65000);
+  </script>
+</body>
+</html>

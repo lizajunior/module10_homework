@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .gallery-item {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 10px;
+      background-color: #f2f2f2;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-item .heart-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item .heart-button::before,
+    .gallery-item .heart-button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 13px;
+      height: 21px;
+      background-color: #e74c3c;
+      border-radius: 50%;
+    }
+
+    .gallery-item .heart-button::before {
+      left: 5px;
+      transform: rotate(40deg);
+    }
+
+    .gallery-item .heart-button::after {
+      left: -2px;
+      transform: rotate(-40deg);
+    }
+
+    .gallery-item .heart-button:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <div class="gallery-item">
+      <button class="heart-button"></button>
+      <img src="https://images.unsplash.com/photo-1686746051821-e2a287fb2f89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80">
+    </div>
+    <div class="gallery-item">
+      <button class="heart-button"></button>
+      <img src="https://images.unsplash.com/photo-1682686580036-b5e25932ce9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1550&q=80">
+    </div>
+    <div class="gallery-item">
+      <button class="heart-button"></button>
+      <img src="https://plus.unsplash.com/premium_photo-1676955434742-9d4cc4e63abe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80">
+    </div>
+    <div class="gallery-item">
+      <button class="heart-button"></button>
+      <img src="https://images.unsplash.com/photo-1687178101608-fadc5f1b5a2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1452&q=80">
+    </div>
+  </div>
+  <script>
+    const gallery = document.querySelector(".gallery");
+    console.log(gallery.querySelectorAll(".heart-button"));
+
+  </script>
+</body>
+</html>

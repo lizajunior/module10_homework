@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #333;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container label {
+      margin-bottom: 8px;
+      font-weight: bold;
+      display: block;
+    }
+
+    .form-container input {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: block;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+    }
+
+    .form-container button:hover {
+      background-color: #218838;
+    }
+
+    .tooltip {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .tooltip.show {
+      opacity: 1;
+    }
+
+    .tooltip.hide {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <form id="loginForm">
+      <label for="username">Имя пользователя:</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <button type="submit">Войти</button>
+    </form>
+  </div>
+
+  <div class="tooltip"></div>
+
+  <script>
+    const form = document.querySelector('#loginForm');
+    const tooltip = document.querySelector('.tooltip');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // предотвращаем отправку формы по умолчанию
+
+      if (form.checkValidity()) {
+
+        const newParagraph = document.createElement('p');
+        newParagraph.textContent = 'Данные, которые вы ввели, отправлены.';
+
+        tooltip.innerHTML = '';
+        //Если вы не очистите tooltip перед добавлением нового параграфа, 
+        //то каждый раз при отправке формы будет добавляться новый параграф,
+        //не удаляя предыдущие. Это приведёт к тому, что в tooltip будет накапливаться всё больше и больше параграфов с сообщением.
+        
+        tooltip.appendChild(newParagraph);
+        tooltip.classList.add('show');
+
+        // Убираем сообщение через 3 секунды
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+          tooltip.classList.add('hide');
+        }, 3000);
+
+        // Полное удаление сообщения после исчезновения
+        setTimeout(() => {
+          tooltip.classList.remove('hide');
+          tooltip.innerHTML = '';
+        }, 3500);
+      } else {
+        // Если форма не валидна, браузер покажет стандартные сообщения об ошибках
+        form.reportValidity();
+      }
+    });
+  </script>
+</body>
+</html>

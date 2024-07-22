@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: helvetica;
+      color: white;
+    }
+
+    .btn--login {
+      padding: 0.5em 2em;
+      background-color: #3cb371;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn--login:hover {
+      background-color: #3cb100;
+    }
+    .btn--submit {
+      padding: 0.5em 2em;
+      background-color: white;
+      color: #3cb371;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn--submit:hover {
+      background-color: #f0f0f0;
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      flex-flow: column;
+      gap: 1em;
+      min-width: 300px;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #3cb371;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup input[type="text"],
+    .popup input[type="password"] {
+      padding: 0.5em;
+      background-color: #fff;
+      color: #008000;
+      border: 1px solid #008000;
+      border-radius: 20px;
+    }
+
+    .popup input[type="submit"]:hover {
+      background-color: #008000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<button class="btn--login">Войти</button>
+<div id="popup" class="popup">
+  <h2>Форма входа</h2>
+  <label for="username">Имя пользователя:</label>
+  <input type="text" id="username" name="username">
+  <label for="password">Пароль:</label>
+  <input type="password" id="password" name="password">
+  <button class="btn--submit" type="submit">Войти</button>
+</div>
+
+<script>
+  const loginButton = document.querySelector(".btn--login");
+  const popup = document.getElementById("popup");
+  const initialPopupDisplay =  window.getComputedStyle(popup).display; //либо popup.style.display
+  console.log(`Начальное значение display для попапа (inline-стиль): ${initialPopupDisplay}`); 
+  loginButton.addEventListener("click", () => {
+    setTimeout(() => {
+      popup.style.display = "flex";
+    }, 1000);
+  });
+  console.log(`После нажатия кнопки: ${initialPopupDisplay}`);
+</script>
+</body>
+</html>

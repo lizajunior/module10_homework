@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p{
+      text-align:center;
+    }
+    .box {
+      margin: auto;
+      margin-top: 4em;
+      width: 200px;
+      height: 200px;
+      background-color: #aedef2;
+      transition: background-color 0.3s ease;
+    }
+
+    
+    .box.active {
+      background-color: #a0db8e;
+    }
+
+
+    .blue-bg {
+      background-color: #aedef2;
+    }
+
+    .green-bg {
+      background-color: #a0db8e;
+    }
+  </style>
+</head>
+<body>
+  <!-- this указывает на текущий элемент который был нажат тоесть box-->
+  <!--.box.active переопределяют стили из .box-->
+  <!--.box.active задаёт дополнительные стили для элемента с классом box, когда у него также есть класс active-->
+  <div class="box" onclick="toggleColor(this)"></div>
+  <p class="blue-paragraph">фон этого параграфа голубой</p>
+  <p class="green-paragraph">фон этого параграфа зелёный</p>
+  <script>
+    function toggleColor(element) {
+      element.classList.toggle("active");
+    
+      const blueParagraph = document.querySelector('.blue-paragraph');
+      const greenParagraph = document.querySelector('.green-paragraph');
+
+      if (element.classList.contains("active")) {
+        blueParagraph.classList.remove('blue-bg');
+        greenParagraph.classList.add('green-bg');
+      } else {
+        blueParagraph.classList.add('blue-bg');
+        greenParagraph.classList.remove('green-bg');
+      }
+    
+    }
+    
+    
+  </script>
+</body>
+</html>

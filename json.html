@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="type" value="Some Type">
+  <input type="text" id="name" value="Some Name">
+  <div id="result"></div>
+  <script>
+    function convertToJSON() {
+        const obj = {
+        "Подводная Братва": [
+          {
+            
+            age: 13,
+            type: "Акула",
+            name: "Ленни"
+          },
+          {
+            age: 19,
+            type: "Губан-чистильщик",
+            name: "Оскар"
+          },
+          {
+            age: 16,
+            type: "Скалярия",
+            name: "Энджи"
+          },
+          {
+            age: 63,
+            type: "Рыба-ёж",
+            name: "Сайкс"
+          }
+        ]
+      };
+      const jsonData = JSON.stringify(obj)//из обьекта в JSON 
+      document.getElementById("result").innerText =  jsonData;
+    }
+    convertToJSON();
+  </script>
+</body>
+</html>

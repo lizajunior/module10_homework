@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .product {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+    }
+
+    .product h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #333333;
+    }
+
+    .product p {
+      margin-top: 0;
+      color: #666666;
+    }
+
+    .product button {
+      padding: 5px 10px;
+      background-color: #66bb6a;
+      color: #ffffff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .product button:hover {
+      background-color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="product">
+      <h3>Товар 1</h3>
+      <p>Описание товара 1.</p>
+      <button type="button">Удалить</button>
+    </div>
+    <div class="product">
+      <h3>Товар 2</h3>
+      <p>Описание товара 2.</p>
+      <button type="button">Удалить</button>
+    </div>
+    <div class="product">
+      <h3>Товар 3</h3>
+      <p>Описание товара 3.</p>
+      <button type="button">Удалить</button>
+    </div>
+  </div>
+  <script>
+    // В этом примере мы создали несколько товаров, 
+    // получили все кнопки(querySelectorAll) и на каждую повесили событие. 
+    // Если кнопка нажата, то мы получаем её родителя (.parentNode) 
+    // заменяем его на пустую строку. То есть удаляем из контейнера (.outerHTML = "")
+    const btns = document.querySelectorAll("button");
+    btns.forEach((elem) =>
+      elem.addEventListener("click", () => {
+        elem.parentNode.outerHTML = "";
+      })
+    );
+    //Благодаря outerHTML мы удаляем не только содержимое каждой карточки, но и саму карточку.
+  </script>
+</body>
+</html>

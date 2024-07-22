@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    div {
+      width:9000px;
+      height: 5000px;
+      background-color: lightgreen;
+      text-align: center;
+      font-size: 40px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="scrollable-content">Меня можно прокрутить, я долгий!</div>
+  
+  <script>
+    document.querySelector('div').addEventListener('click', (e) => {
+      console.log(e.clientX, e.pageX)
+    });
+  </script>
+</body>
+</html>

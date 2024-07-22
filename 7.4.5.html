@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function filterArray(array, predicateFn){
+      const result = [];
+      for(i = 0; i < array.length; i++){
+        if(predicateFn(array[i])){
+          result.push(array[i]);
+        }
+      }
+      return result;
+    }
+
+    function isPositive(num) {
+        return num > 0;
+    }
+
+    let nums = [-1, 2, -3, 4, -5];
+    let positiveNums = filterArray(nums, isPositive);
+
+    console.log(positiveNums); // [2, 4]
+  </script>
+</body>
+</html>

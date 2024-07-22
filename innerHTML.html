@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Получите HTML-значение контейнера для статьи.</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+
+    .article-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* Стили для абзацев */
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .meta-info {
+      font-size: 14px;
+      color: #888;
+      margin-top: 30px;
+    }
+
+    .meta-info span {
+      margin-right: 10px;
+    }
+
+    .meta-info span:before {
+      content: "\2022";
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="article-container">
+    <h1>Статья про лето</h1>
+    <p>Лето наконец-то пришло.</p>
+    <p>Теплее не стало.</p>
+    <p>До встречи в следующей статье.</p>
+    <div class="meta-info">
+      <span class="author">Автор: Джаред Летов</span>
+      <span class="date">Дата публикации: 22 июня 2023</span>
+    </div>
+  </div>
+  <script>
+    const container = document.querySelector('.article-container');
+    const articleHTML = container.innerHTML;
+    console.log(articleHTML)
+  </script>
+</body>
+</html>

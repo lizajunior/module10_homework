@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is closer to 10</title>
+</head>
+<body>
+  <script>
+    // const info = alert('write 2 number and program tells which is number closer to 10:');
+    // const firstNumber =  parseFloat(prompt("first:"));
+    // const secondNumber = parseFloat(prompt("second:"));
+    // // parseFloat нужен чтобы программа не округляла введенное число
+    // if(10 - firstNumber < -(10 - secondNumber)) {
+    //     alert(firstNumber);
+    // } else {
+    //     alert(secondNumber);
+    // }5
+  
+    const stNumber = prompt('Введите первое число');
+    const ndNumber = prompt('Введите второе число');
+    const result = 10 - stNumber < -(10 - ndNumber) ? stNumber : ndNumber;
+    alert(result);
+
+  </script>
+</body>
+</html>

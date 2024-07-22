@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root {
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+  width: 50%;
+  min-width: 300px;
+  margin: auto;
+}
+
+.btn {
+  display: block;
+  padding: 12px 24px;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ff4081;
+  color: #ffffff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #f50057;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5em;
+  padding: 0.5em 2em;
+  background-color: #f0f3f6;
+  border-radius: 10px;
+}
+
+.user__icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: lightblue;
+}
+  </style>
+</head>
+<body>
+  <button type="button" class="btn">Загрузить пользователей</button>
+  <div id="root"></div>
+  <script>
+    const root = document.getElementById("root");
+    const url = "https://jsonplaceholder.typicode.com/users";
+    const btn = document.querySelector(".btn");
+
+    const fetchData = async () => {
+      try{
+        let data = await fetch(url);
+        let response = await data.json();
+        if (response) {
+          makeUser(response);
+        }
+      } catch (err) {
+          console.log(err.message);
+      }
+    };
+
+    const makeUser = (arr) => {
+      if (arr) {
+        root.innerHTML = null;
+        arr.map((elem, index) => {
+          let user = `<div class="user">
+          <span class="user__icon"></span>
+            <h2 class="user__name">${elem.name}, ${index + 1}</h2>
+          </div>`;
+          root.innerHTML += user;
+        });
+      }
+    };
+
+    btn.addEventListener("click", fetchData);
+  </script>
+</body>
+</html>

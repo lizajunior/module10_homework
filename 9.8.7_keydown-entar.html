@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #btn {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    #popup h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #popup p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">Открыть попап</button>
+  <div id="popup" style="display: none;">
+    <h1>Попап</h1>
+    <p>Нажмите Esc, чтобы закрыть попап.</p>
+  </div>
+  <script>
+    const openButton = document.getElementById("btn");
+    const popup = document.getElementById("popup");
+
+    openButton.addEventListener("click", () => {
+      popup.style.display = "block";
+    });
+
+    document.addEventListener("keydown", (event) => { // именно document!!
+      if (event.key === "Shift") { // Мы обратились к свойству key и узнали, какое ключевое слово зарезервировано за нажатой кнопкой.
+        popup.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

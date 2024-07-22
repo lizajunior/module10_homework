@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function pancakeBaker() {
+    //   console.log("Тесто готово, давайте жарить!");
+    //   console.log("Наливаем тесто для одного блинчика.");
+    //   setTimeout(() => {
+    //       console.log("Перевернём блин на другую сторону и подождём ещё.");
+
+    //       setTimeout(() => {
+    //           console.log("Блинчик готов!");
+    //       }, 5000);
+    //   }, 5000);
+      
+    //   setTimeout(()=> {
+    //     console.log('Пока постоим и подождём.');
+    //   },2000);
+      
+    // }
+    
+    
+    //2.8
+    // const counter = (n) => {
+    //   if (n === 0){
+    //     console.log('Функция завершена');
+    //   }else {
+    //     console.log('n:'+ n);
+    //     counter(n - 1);
+    //   }
+    // };
+    // counter(5);
+
+
+    //8.3.1 promise 
+    // const promise = new Promise((resolve, reject) => {
+    //     const randomNum = Math.random();
+    //     if(randomNum % 2 === 0){
+    //       resolve(randomNum)
+    //     } else {
+    //       reject("Число нечетное")
+    //     }
+    // });
+    // promise.then((res) => // Обработка разрешённого состояния промиса:
+    // console.log(res)).catch((err) => // Обработка отклонённого состояния промиса:
+    // console.log(err));
+
+    //8.3.2
+    const errorPromise = new Promise((resolve, reject)=>{
+      reject(new Error('возникла ошибка!'));
+    });
+
+    errorPromise
+    .then((result)=>{
+      console.log('Результат:', result);
+    })
+    .catch((error)=>{
+      console.log('произошла ошибка:', error.message);
+    });
+    
+  </script>
+</body>
+</html>

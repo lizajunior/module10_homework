@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .box {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  #outer {
+    background-color: #87c38f;
+  }
+
+  #inner {
+    background-color: #63a17f;
+  }
+
+  .button {
+    padding: 10px 20px;
+    background-color: #52856e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #405e4f;
+  }
+</style>
+<body>
+  <div id="outer" class="box">
+    <div id="inner" class="box">
+      <button id="button" class="button">Нажми меня!</button>
+    </div>
+  </div>
+  <script>
+    document.getElementById("outer").addEventListener("click", function () {
+      this.style.backgroundColor = "#a3dea3";
+      console.log("Внешний элемент нажат");
+    });
+
+    document.getElementById("inner").addEventListener("click", function () {
+      this.style.backgroundColor = "#78b578";
+      console.log("Внутренний элемент нажат");
+    });
+
+    document.getElementById("button").addEventListener("click", function (e) {
+      e.stopPropagation();
+      console.log("Кнопка нажата");
+    });
+  </script>
+</body>
+</html>

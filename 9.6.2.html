@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./9.6.2-one-video.css">
+  <style>
+    *{
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    main {
+      min-height: 100vh; 
+      display: flex; /* Включаем flexbox модель для body */
+      justify-content: center; /* Центрируем по горизонтали */
+      align-items: center;
+    }
+
+    #content{
+      display:none;
+    }
+
+    #content.visible{
+      display:block;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+    }
+
+    .link {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    .link:hover {
+      background-color: #555;
+    }
+
+    .link--active {
+      color: pink;
+    }
+    
+
+    
+    
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a class="link" id="show-content" href="#" >Главная</a></li>
+        <li><a class="link" href="#">О нас</a></li>
+        <li><a class="link" href="#">Услуги</a></li>
+        <li><a class="link" href="#">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="hero" id="content">
+      <h2>Смотрите туториал как правильно делать Mobile First и узнайте больше о разных видов адаптивной верстки</h2>
+    
+      <section class="video-grid">
+        <a href="https://youtu.be/XbnAKjjlgc4">
+          <div class="video-preview">
+            <div class="thumbnail-row">
+              <img class="thumbnail" src="video-preview-and-chanell-pic/adaptiv.jpg">
+              <div class="video-time">36:43</div>
+            </div>
+            <div class="video-info-grid">
+              <a href="https://www.youtube.com/@FreelancerLifeStyle">
+                  <div class="channel-picture">
+                      <img class="profile-picture" src="video-preview-and-chanell-pic/adaptiv_chanel-pic.jpg">
+                  </div>
+              </a>
+              <div class="video-info">
+                  <a href="https://youtu.be/XbnAKjjlgc4" class="video-title-link">
+                    <p class="video-title">
+                      Адаптивная вёрстка сайтов за 37 минут + макет. Тебе не нужен Bootstrap! [ENG SUBS]
+                    </p>
+                  </a>
+    
+                  <p class="video-author">  
+                    Фрілансер по життю
+                  </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
+    </div>
+  </main>
+  <script>
+    const links = document.querySelectorAll('.link');
+    const content  = document.getElementById('content');
+
+    links.forEach((link) => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const current = document.querySelectorAll(".link--active");
+
+        current.forEach((elem) => elem.classList.remove("link--active"));
+        this.classList.add("link--active");
+
+        if (this.id === "show-content") {
+          content.classList.add('visible');
+        } else {
+          content.classList.remove('visible');
+        }
+      });
+    });
+      
+  </script>
+</body>
+</html>

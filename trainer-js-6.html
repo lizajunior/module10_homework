@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //task 1
+    // const input = prompt('введите одну и ту же строку с разным регистром');
+    // const str1 = prompt('1 строка');
+    // const str2 = prompt('2 строка');
+    // const match = (str1 , str2) => {
+    //   str1 = str1.toLowerCase();
+    //   str2 = str2.toLowerCase();
+    //   if (str1 === str2) {
+    //     alert('true');
+    //   }else{
+    //     alert('false')
+    //   }
+    // }
+    // match(str1,str2);
+    
+
+    //task 2
+    // const getSubredditName = (subreddit) => {
+    //   const prefix = 'https://www.reddit.com/r/';
+    //   if(subreddit.startsWith(prefix)){
+    //     const parts = subreddit.split('/');//Output: ["https:", "", "www.reddit.com", "r", "funny", ""]
+    //     return parts[parts.length - 2]; //funny
+    //   }
+    //   return null;
+    // };
+    // let subreddit = 'https://www.reddit.com/r/funny/';
+    // let subredditName = getSubredditName(subreddit);
+    // console.log(subredditName);
+
+    //task 3
+    // const arr = [1,2,3,4,5];
+    // const reverseAndNegate = (arr) => {
+    //   arr.reverse();
+    //   for (let i = 0; i < arr.length; i++) {
+    //     arr[i] = -arr[i];
+    //   }
+    // };
+    // reverseAndNegate(arr);
+    // console.log(arr);
+
+    //task 4
+    // arr = [13, 12, 3, 5, 6, 9, 8, 0];
+    // const getElementsArr = (arr) => {
+    //   let sum = 0;
+    //   for(let i = 0; i < arr.length; i++){
+    //     if(arr[i] % 2 === 0) {
+    //       arr[i] += 4;
+    //     }
+    //     else {
+    //       arr[i] -= 2;
+    //     }
+
+    //     if(arr[i] % 13 === 0) {
+    //       arr.splice(i, 1);
+    //       i--;
+    //     }
+    //     else {
+    //       sum += arr[i];
+    //     }   
+    //   }
+    //    return sum;
+    // };
+    
+    // const result = getElementsArr(arr);
+    // console.log(result);
+ 
+    //task 5
+    // const arr = ['10k', '2.3k', '5k', '32', '28.4k'];
+    //   const transformUpvotes = (arr) => {
+    //     return arr.map((str) => {
+    //     if (str.endsWith('k')) {
+    //         const num = parseFloat(str);
+    //         return Math.round(num * 1000); // Умножаем на 1000 и округляем до целого числа
+    //     } else {
+    //         return parseFloat(str); // Преобразуем в число
+    //     }
+    // });
+    // };
+    // const transformedUpvotes = transformUpvotes(arr);
+    // console.log(transformedUpvotes);
+  </script>
+</body>
+</html>

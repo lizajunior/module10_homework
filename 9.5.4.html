@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input and Checkbox Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 300px;
+    }
+
+    input[type="checkbox"] {
+      margin-top: 10px;
+    }
+
+    .checkbox-label {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <label for="inputField">Введите текст:</label>
+  <input type="text" id="inputField" name="inputField">
+  
+  <br><br>
+
+  <input type="checkbox" id="checkbox" name="checkbox" checked>
+  <label for="checkbox">Я согласен с условиями использования</label>
+
+  <script>
+    const checkbox = document.querySelector('#checkbox');
+    
+    console.log(checkbox.getAttribute('checked'));
+    console.log(checkbox.checked); 
+  </script> -->
+  <input type="checkbox" id="myCheckbox" checked>
+  <label for="myCheckbox">Я согласен с условиями использования</label>
+  <br>
+  <div id="myDiv" hidden></div>
+  <br>
+  <button id="myButton" disabled></button>
+
+  <script>
+    const checkbox = document.querySelector('#myCheckbox');
+    const div = document.querySelector('#myDiv');
+    const button = document.querySelector('#myButton');
+    // Для получения значения атрибутов checked, 
+    // hidden и disabled, вам нужно обращаться к ним как к свойствам 
+    // элементов, а не использовать метод getAttribute.
+    console.log(checkbox.checked);
+    console.log(div.hidden)
+    console.log(button.disabled);
+
+  </script>
+</body>
+
+</html>

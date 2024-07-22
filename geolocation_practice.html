@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(130deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+      font-family: monospace;
+    }
+
+    main {
+      width: 100%;
+      margin: 50px 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+    }
+
+    input {
+      background: unset;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      padding: 5px;
+      font-family: monospace;
+      font-weight: bold;
+      color: #fff;
+      width: 100px;
+      transition: border-color 400ms ease;
+    }
+
+    input.error {
+      border-color: red;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #0eadaf;
+    }
+
+    button {
+      background: #0eadaf;
+      color: #fff;
+      font-family: monospace;
+      font-weight: bold;
+      border: none;
+      padding: 7px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 400ms ease;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    button:hover {
+      background: #0b898b;
+    }
+
+    #output {
+      margin: 30px 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="frame">
+      <h1>Получить ссылку на свое местоположение</h1>
+      <button id="button">Вперед!</button>
+      <div id="output"></div>
+    </div>
+  </main>
+</body>
+<script>
+  function pageLoaded(){
+    let btn = document.getElementById('button');
+    let output = document.getElementById('output');
+
+    btn.addEventListener('click', getLocation);
+    
+    function getLocation(){
+      if('geolocation' in navigator){
+        navigator.geolocation.getCurrentPosition(locationSuccess, locationError);
+      }else{
+        writeOutput('Ваш браузер не поддерживает функцию определения местоположения');
+      }
+    }
+
+    function locationSuccess(data){
+      let link = `https://yandex.ru/maps/?pt=${data.coords.longitude},${data.coords.latitude}&z=18&l=map`;
+      writeOutput(`<a href='${link}' target='_blank'> Вы находитесь деся: </a>`);
+    }
+
+    function locationError(){
+      writeOutput('При получении местоположения произошла ошибка');
+    }
+
+    function writeOutput(message){
+      output.innerHTML=`<p>${message}</p>`
+    }
+  }
+  document.addEventListener('DOMContentLoaded', pageLoaded);
+</script>
+</html>

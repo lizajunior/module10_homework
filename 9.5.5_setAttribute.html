@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .line-one {
+      color: #ff7373;
+    }
+    .line-two {
+      color: #a0db8e;
+    }
+    .line-three {
+      color: #aedef2;
+    }
+    .line-four {
+      color: #f0006b;
+    }
+  </style>
+</head>
+<body>
+  <p id="1">Забудь заботы и печали</p>
+  <p id="2">Умчись без цели на коне</p>
+  <p id="3">В туман и в луговые дали,</p>
+  <p id="4">Навстречу ночи и луне!</p>
+
+  <script>
+    const line1 = document.getElementById("1");
+    line1.setAttribute("class", "line-one");
+
+    const line2 = document.getElementById("2");
+    line2.setAttribute("class", "line-two");
+
+    const line3 = document.getElementById("3");
+    line3.setAttribute("class", "line-three");
+
+    const line4= document.getElementById("4");
+    line4.setAttribute("class", "line-four");
+  </script>
+</body>
+</html>

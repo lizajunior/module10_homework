@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center; /* Центрирование по горизонтали */
+      align-items: center;    /* Центрирование по вертикали */
+      height: 100vh;          /* Высота экрана для центрирования по вертикали */
+      margin: 0;              /* Убираем отступы */
+    }
+    #box{
+      position:relative;
+      width:100px;
+      height: 100px;
+      background: linear-gradient(lightyellow, darkviolet);
+      cursor:pointer;
+      transition: transform 1s ease-out;
+    }
+    .spin{
+      transform:rotate(360deg);
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    const box = document.getElementById('box');
+    let angle = 0;//угол вращения
+    function triggerAnimation(){
+      box.classList.add('spin');
+      angle += 360;
+      box.style.transform =`rotate(${angle}deg)`;
+    }
+
+    box.addEventListener('click',triggerAnimation);
+    box.addEventListener('transitionend', function(){
+      box.classList.remove('spin');
+    });
+  </script>
+</body>
+</html>

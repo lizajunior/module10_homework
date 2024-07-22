@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise.all()</title>
+</head>
+<body>
+  <script>
+    const promise1 = new Promise((resolve) =>
+      setTimeout(() => resolve(2), 1000)
+    );
+    const promise2 = new Promise((resolve) =>
+      setTimeout(() => resolve(5), 2000)
+    );
+    const promise3 = new Promise((resolve) =>
+      setTimeout(() => resolve(10), 3000)
+    );
+    Promise.all([promise1, promise2, promise3])
+      .then((values)=>{
+        const [result1, result2, result3] = values;
+        const sum = result1 + result2 + result3;
+        console.log(`sum:${sum}`);
+      })
+      .catch(()=>{
+        console.log('error');
+      })
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .person {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .person h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .person p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!--Создайте ещё один дата-атрибут у каждого элемента и 
+  поместите туда фамилии людей. А затем получите их в коде
+  по аналогии с примером.-->
+
+  <div id="peopleList">
+    <div class="person" data-year="845" data-last-name="Вещий" data-name="Олег">
+      <h3>Вещий Олег</h3>
+      <p>Год рождения: 845</p>
+    </div>
+    <div class="person" data-year="1053" data-last-name="Мономах" data-name="Владимир">
+      <h3>Владимир Мономах</h3>
+      <p>Год рождения: 1053</p>
+    </div>
+    <div class="person" data-year="1090"data-last-name="Долгорукий" data-name="Юрий">
+      <h3>Юрий Долгорукий</h3>
+      <p>Год рождения: 1090</p>
+    </div>
+  </div>
+
+  <script>
+    const people = document.querySelectorAll(".person");
+    people.forEach((person) => {
+
+      //Когда вы обращаетесь к dataset, браузер автоматически 
+      //преобразует имя атрибута data-* из kebab-case в camelCase. 
+      //Таким образом, data-year становится dataset.year, 
+      //data-last-name становится dataset.lastName и так далее.
+
+      const yearOfBirth = person.dataset.year;
+      const personLastName = person.dataset.lastName;
+      const personName = person.dataset.name;
+
+      console.log(`Дата рождения: ${yearOfBirth}`);
+      console.log(`Имя: ${personName}`);
+      console.log(`Фамилия: ${personLastName}`);
+    });
+    // имена свойств dataset в JavaScript записываются в camelCase (верблюжьем регистре), даже если в HTML они указаны в kebab-case (через дефис).
+  </script>
+</body>
+</html>

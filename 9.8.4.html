@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      margin: 20px;
+    }
+
+    #input {
+      width: 200px;
+      padding: 0.5em;
+      border-radius: 20px;
+      border: 2px solid green;
+    }
+
+    #output {
+      font-weight: 500;
+      color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <input id="input" type="text" placeholder="Введите сообщение..." />
+    <p id="output"></p>
+  </div>
+
+  <script>
+    const input = document.querySelector("#input");
+    const output = document.querySelector("#output");
+
+    const inputHandler = (e) => {
+      output.textContent = e.target.value;
+    };
+
+    input.oninput = inputHandler;
+    //либо input.addEventListener('input', inputHandler);
+  </script>
+</body>
+</html>

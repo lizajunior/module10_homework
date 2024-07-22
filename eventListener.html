@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+    box-sizing: border-box;
+  }
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    height: 100vh;
+    background-color: #f1f1f1;
+  }
+
+  #input {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid green;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+
+  .btn,
+  .btn-clean {
+    width: 200px;
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <input type="text" id="input">
+    <button class="btn">Отправить данные</button>
+    <button class="btn-clean">Очистить параграф</button>
+    <p class="result"></p>
+  </div>
+  <script>
+    const input = document.querySelector("#input");
+    const btn = document.querySelector(".btn");
+    const btnClean = document.querySelector(".btn-clean");
+    const result = document.querySelector(".result");
+
+    btn.addEventListener("click", () => {
+      let inputValue = input.value;
+      result.textContent = inputValue;
+      console.log(inputValue);
+    });
+
+    btnClean.addEventListener("click", () => {
+      result.textContent = '';
+    });
+  </script>
+</body>
+</html>

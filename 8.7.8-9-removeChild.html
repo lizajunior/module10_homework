@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    margin: auto;
+    padding: 0.5em;
+    background-color: lightgreen;
+  }
+
+  img {
+    width: 250px;
+  }
+</style>
+<body>
+
+  <div class="container">
+    <img id="photo-1" src="https://images.unsplash.com/photo-1686072895120-af68fc5abd5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" />
+    <img id="photo-2" src="https://images.unsplash.com/photo-1685972215665-80580c58e4ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1797&q=80" />
+    <img id="photo-3" src="https://images.unsplash.com/photo-1682688759350-050208b1211c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" />
+    <img id="photo-4" src="https://plus.unsplash.com/premium_photo-1686050878751-89499d28d153?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" />
+  </div>
+
+  <script>
+    const firstPic = document.querySelector('#photo-1');
+    const secondPic = document.querySelector('#photo-2');
+    const container = document.querySelector('.container');
+
+    container.removeChild(firstPic);
+    container.removeChild(secondPic);
+  </script>
+</body>
+</html>

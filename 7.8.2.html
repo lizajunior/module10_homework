@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const input = 'hello, world!';
+    let result = '';
+    function removeVowels(input){
+      for (let i = 0; i < input.length; i++){
+        if (!'aeiuyo'.includes(input[i])){
+          result += input[i];
+        }
+      }return result;
+    };
+    console.log(removeVowels(input));
+  </script>
+</body>
+</html>

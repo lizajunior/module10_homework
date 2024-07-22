@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #chat {
+      width: 400px;
+      margin: 15px auto;
+      padding: 20px;
+    }
+
+    .info_output {
+      color: grey;
+      font-style: italic;
+    }
+
+    .chat_output {
+      margin: 20px 0;
+      border: 1px solid grey;
+      padding: 10px;
+      height: 150px;
+      overflow-y: scroll;
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+
+    .chat_output > div {
+      max-width: 80%;
+      padding: 5px 10px;
+      margin: 5px 0;
+      border-radius: 3px;
+      color: #fff;
+    }
+
+    .chat_output .received {
+      background: #353580;
+      align-self: flex-start;
+    }
+    
+    .chat_output .sent {
+      background: #1b8a1b;
+      align-self: flex-end;
+    }
+
+    .chat_input input {
+      padding: 5px 10px;
+    }
+
+    .btn_send {
+      padding: 7px 10px;
+      color: #fff;
+      background: grey;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main id="chat">
+    <div class="info_output"></div>
+    <div class="chat_output"></div>
+    <div class="chat_input">
+      <input type="text" placeholder="Введите сообщение" />
+      <button class="btn_send">Отправить</button>
+    </div>
+  </main>
+</body>
+<script>
+  const wsUri = "wss://echo.websocket.org/";
+
+  function pageLoaded(){
+    const infoOutput = document.querySelector('.info_output');
+    const chatOutput = document.querySelector('.chat_output');
+    const input = document.querySelector('.chat_input input');
+    const sendBtn = document.querySelector('.btn_send');
+
+    let socket = new WebSocket(wsUri);
+
+    socket.onopen = () => {
+      infoOutput.innerText = 'Соединение установлено';
+    }
+
+    socket.onmessage = (event) => {
+      writeToChat(event.data, true);//если полученное сообщение то true
+    }
+
+    socket.onerror = () => {
+      infoOutput.innerText = 'При передачи данных произошла ошибка';
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+
+    function sendMessage(){
+      if(!input.value) return; // если инпут пустой выходим из функции
+      socket.send(input.value);
+      writeToChat(input.value, false)//false потому что сообщение не полученное а отправленное
+      input.value === '';
+    }
+
+    function writeToChat(message, isReceived){
+      let messageHTML = `<div class='${isReceived ? 'received' : 'sent'}'>${message}</div>`;
+      chatOutput.innerHTML += messageHTML;
+    }
+
+  };
+
+  document.addEventListener('DOMContentLoaded', pageLoaded);
+</script>
+</html>

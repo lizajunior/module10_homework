@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        .profile {
+            margin-top: 20px;
+        }
+
+        .data {
+            margin-top: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Анкета пользователя</h1>
+        <div class="wrap">
+            <label for="userNameInput">Имя:</label>
+            <input type="text" id="userNameInput" required placeholder="Имя">
+            <label for="userLastNameInput">Фамилия:</label>
+            <input type="text" id="userLastNameInput" required placeholder="Фамилия">
+            <label for="userAgeInput">Возраст:</label>
+            <input type="number" id="userAgeInput" required placeholder="Возраст">
+            <button id="btn" type="button">Создать анкету</button>
+        </div>
+        <div class="profile hidden">
+            <h2>Ваша анкета:</h2>
+            <div class="data"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profile = document.querySelector(".profile");
+            const data = document.querySelector(".data");
+            const btn = document.querySelector("#btn");
+
+            btn.addEventListener('click', function() {
+                const name = document.getElementById('userNameInput').value;
+                const lastName = document.getElementById('userLastNameInput').value;
+                const age = document.getElementById('userAgeInput').value;
+
+                if (name && lastName && age) {
+                    const user = {
+                        name,
+                        lastName,
+                        age
+                    };
+
+                    displayUserProfile(user);
+                    profile.classList.remove('hidden');  // Показываем анкету
+                } else {
+                    data.textContent = 'Вы ввели не все данные!';
+                }
+            });
+
+            function displayUserProfile(user) {
+                data.innerHTML = '';
+                for (const key in user) {
+                    const value = user[key];
+                    const profileItem = document.createElement('div');
+                    profileItem.innerHTML = `<b>${key}:</b> <span>${value}</span>`;
+                    data.appendChild(profileItem);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

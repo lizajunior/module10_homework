@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // const name = prompt('введите ваше имя: ');
+    // const lastname = prompt('введите вашу фамилию: ');
+    // alert(`Привет ${name} ${lastname}!`);
+
+    // const x = +prompt('сколько градусов по Цельсию: ');
+    // const y = (x * 9 / 5) + 32;
+    // alert(`${x} градусов по Цельсию равны ${y} градусам по Фаренгейту`);
+
+    // const x = +prompt('напишите значение х: ');
+    // const y = (4*x**2 + 18 - 23*x) /(5/9*x + 18 * x**3/33*x) + x * 15/12;
+    // alert(`значение y равно: ${y}` );
+
+    // let variables = [12, 'number', false, null, undefined, 123.34, '1' + 1, 15 / 0, -'5', 5 == '5'];
+
+    // let types = [];
+
+    // for (let variable of variables) {
+    //    types.push(typeof variable);
+    // }
+
+    // alert(types.join(','));
+
+    const NDS = 0.20
+    const NDFL = 0.13
+    const EXCISE = 0.1
+    const RENT = 40000
+    const FOOD = 15000
+    const OTHER = 15000
+    const MY_SALARY = 120000
+    
+    const ndflTax = MY_SALARY * NDFL;
+    const mySalaryNet = MY_SALARY - ndflTax;
+    const otherTaxes = mySalaryNet * (NDS + EXCISE);
+    let totalAvailable = mySalaryNet - otherTaxes;
+    totalAvailable -= FOOD + OTHER + RENT;
+    alert('Зарплата ' + MY_SALARY + ' рублей');
+    alert('Уплачено налогов на сумму ' + (ndflTax + otherTaxes) + ' рублей');
+    alert('Осталось ' + totalAvailable + ' рублей');
+
+  </script>
+</body>
+</html>

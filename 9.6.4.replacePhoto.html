@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .image-container {
+      position: relative;
+      display: flex;
+      width: fit-content;
+      margin: auto;
+    }
+
+    .image {
+      width: 300px;
+      height: 300px;
+    }
+
+    .like-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .not-liked {
+      border: 10px dotted #1f3f72;
+    }
+
+    .liked {
+      border: 10px dotted #e46bf4;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="image-container">
+    <img src="https://images.unsplash.com/photo-1548567117-02328f050eaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+      alt="Изображение" class="image not-liked">
+    <button id="like-button" class="like-button">❤️</button>
+  </div>
+
+
+  <script>
+
+    const image = document.querySelector(".image");
+    const likeButton = document.getElementById("like-button");
+    
+    likeButton.addEventListener("click", () => {
+      if (!image.classList.contains("liked")) {
+        image.classList.add("liked");
+        likeButton.innerHTML = "💖 Liked";
+      } else {
+        image.classList.replace("liked","not-liked");//либо remove('liked');
+        likeButton.innerHTML = "❤️";
+      }
+      
+      
+    });
+
+  </script>
+</body>
+</html>

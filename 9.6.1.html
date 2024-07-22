@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: helvetica, sans-serif;
+    }
+
+    .header {
+      border: 2px solid pink;
+      background-color: #333;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+    }
+
+    .link {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    .link:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script>
+
+    const links = document.querySelectorAll("a");
+    const header = document.querySelector("header");
+    links.forEach((elem) => elem.classList.add("link"));
+    header.classList.add("header");
+  </script>
+</body>
+</html>

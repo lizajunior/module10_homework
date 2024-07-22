@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function chart</title>
+  <style>
+    .chart{
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <svg width="600" height="250" class="chart"></svg>
+</body>
+<script>
+  let sales = [12000, 12500, 15000, 13800, 12400, 10800, 11300, 13900, 15800, 15000, 14700, 13200];
+
+  let svg = document.querySelector('.chart');
+
+  drawChart(sales);
+
+  function drawChart(array){
+    let rectHTML = '', valuesHTML = '';
+    array.forEach((item, index) => {
+      let Xcoord = +svg.getAttribute('width') / array.length * index;
+      let Ycoord =  +svg.getAttribute('height') - item / 100;
+      let width = +svg.getAttribute('width') / array.length;
+      let height = +svg.getAttribute('height') - Ycoord;
+      rectHTML += ` <rect x='${Xcoord}', y='${Ycoord}' width='${width}' height='${height}' fill='yellow' stroke='black'/> `
+      valuesHTML += `<text x='${Xcoord + 5}' y='${Ycoord - 5}'> ${item} </text>`;
+    });
+    svg.innerHTML = rectHTML + valuesHTML ;
+  };
+</script>
+</html>

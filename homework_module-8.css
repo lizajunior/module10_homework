@@ -1,0 +1,83 @@
+* {
+  font-family:Dancing Script;
+}
+
+body{
+  background-color: rgb(220, 249, 220);
+  box-sizing: border-box;
+}
+.loader {
+  display:none;
+  margin: 0 auto;
+  margin-top:15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #d5cfe9;
+  border-top-color: #ab9fd4;
+  animation: spin 0.5s ease-in-out infinite;
+  /*Первое значение — имя анимации. 
+  Второе — длительность анимации. 
+  Третье — характер анимации. 
+  То, в каком темпе она будет происходить. 
+  И последнее — сколько раз будет проиграна анимация. бесконечно*/
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.gallery__container{
+  text-align:center;
+}
+
+h2{
+  margin-bottom:13px;
+}
+
+.gallery__upload_btn{
+  box-shadow: 0 4px 8px rgba(255, 130, 170, 0.3);
+  font-size: 20px;
+  background-color:rgb(246, 247, 239);
+  border: 0.5px solid #f995e0;
+  border-radius:2px;
+  padding: 2px 15px;
+
+}
+
+.gallery__upload_btn:hover{
+  color:white;
+  background-color:rgba(82, 90, 7, 0.659);
+}
+
+.gallery__upload_btn:active{
+  opacity: 0.7;
+}
+
+.gallery__upload_btn:hover::before {
+  content:'-->';
+}
+
+.gallery__upload_btn:hover::after{
+  content:'<--';
+}
+
+#imageContainer{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  gap:10px;
+  padding:20px;
+}
+
+#imageContainer img{
+  max-width:100px;
+  max-height:100px;
+  border-radius:5px;
+}
+

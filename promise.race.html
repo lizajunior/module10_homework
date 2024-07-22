@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function runToIceCream(runner) {
+        const randomDelay = Math.random() * 5000 + 1000; // Случайная задержка от 1 до 6 секунд
+        const delayInSeconds = randomDelay / 1000;//перевод в сек
+        const roundedDelayInSeconds = Math.round(delayInSeconds);//округляем
+        const roundedDelay = roundedDelayInSeconds * 1000;//перевод в милисек
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if(roundedDelay >= 5000){
+                reject(new Error(`${runner} не успел! Задержка ${randomDelay / 1000} секунд`));
+              }
+                resolve(`${runner} — победитель! Добежал за ${randomDelay / 1000} секунд`);
+            }, roundedDelay);
+        });
+    }
+
+    const you = runToIceCream('Вы');
+    const friend1 = runToIceCream('Друг 1');
+    const friend2 = runToIceCream('Друг 2');
+
+    Promise.race([you, friend1, friend2])
+        .then(winner => {
+            console.log(winner);
+        })
+        .catch(error => {
+            console.error('Что-то пошло не так: ' + error.message);
+        });
+  </script>
+</body>
+</html>

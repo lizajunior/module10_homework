@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задание 7.4.2</title>
+</head>
+<body>
+  <script>
+    function multiplyByTwo(num) {
+        return num * 2;
+    }
+
+    function applyToNumber(num, func) {
+        return func(num);
+    }
+
+    let result = applyToNumber(5, multiplyByTwo);
+    console.log(result); // 10
+  </script>
+</body>
+</html>

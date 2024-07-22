@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <form>
+    <label for = "colorInput">Любимый цвет:</label>
+    <input type="text" id="colorInput"></input>
+
+    <label for = "monthInput">Любимый месяц:</label>
+    <input type="text" id="monthInput"></input>
+
+    <button type="button" onclick="submitForm()">Отправить</button>
+  </form>
+  <p id="result"></p>
+
+  <script>
+    function submitForm(e) {
+      // Предотвращаем перезагрузку страницы при отправке формы
+      e.preventDefault();
+      
+      const color = document.querySelector('#colorInput').value;
+      const month = document.querySelector('#monthInput').value;
+
+      const resultParagrath = document.querySelector('#result');
+      resultParagrath.innerHTML = `ваш любимый цвет: <b>${color}</b>, ваш любимый месяц: <b>${month}</b>.`;
+      //innnerHTML нужен для того чтобы можно юыло в него вписывать тэги, его можно заменить textContent.
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.10.4</title>
+</head>
+<body>
+  <script>
+    const userName = prompt('Введите свое имя: ');
+    let userAge= prompt('Введите свой год рождения: ');
+    userAge = 2024 - userAge;
+    if(userAge % 10 === 1){
+      alert(`${userName}: ${userAge} год`);
+    }else if (userAge % 10 === 2 || userAge % 10 === 3 || userAge % 10 === 4){
+      alert(`${userName}: ${userAge} года`);
+    }else{
+      alert(`${userName}: ${userAge} лет`); 
+    }
+  </script>
+</body>
+</html>

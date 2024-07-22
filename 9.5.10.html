@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, 
+    html {
+      height: 100%; 
+      display: flex; /* Включаем flexbox модель для body */
+      justify-content: center; /* Центрируем по горизонтали */
+      align-items: center; /* Центрируем по вертикали */
+    }
+    
+    .random-background-color{
+      border: 2px solid pink;
+      margin:auto;
+      width:50%;
+      height:80%;
+      position:fixed;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+    }
+
+    .btn{
+      border:none;
+      border-radius: 5px;
+      background-color: black;
+      color:white;
+      cursor: pointer;
+      padding: 10px 30px;
+      font-size:60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="random-background-color">
+    <button class="btn">click here! :D</button>
+  </div>
+
+  <script>
+    const container = document.querySelector('.random-background-color');
+    const btn = document.querySelector('.btn');
+    
+    btn.addEventListener('click', () => {
+      const newColor = randomColor();
+      container.style.backgroundColor = newColor;
+    });
+
+    function randomColor(){
+      const random ='123456789abcdef'
+      const color = [];
+      for(let i = 0; i < 6; i++){ //цветовой код имеет длину из 6 символов и начинается с -> #
+        const randomIndex = Math.floor(Math.random() * random.length);//Получаем случайный индекс
+        const randomSymbol = random[randomIndex];  // Выбираем символ по случайному индексу
+        color.push(randomSymbol);
+      }
+      return '#' + color.join('');
+    }
+  </script>
+</body>
+</html>

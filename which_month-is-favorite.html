@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite month</title>
+</head>
+<body>
+  <script>
+    const number = +prompt('всего в году 4 время года, какой твой любимый?(1..2..3..4?)');
+    let favorite ='';
+    switch(number){
+      case 1:
+        favorite = 'Зима';
+        break;
+      case 2:
+        favorite = 'Весна';
+        break;
+      case 3:
+        favorite = 'Лето';
+        break;
+      case 4:
+        favorite = 'Осень';
+        break;
+    }
+    alert(`Ваше любимое время года ${favorite}`);
+  </script>
+</body>
+</html>

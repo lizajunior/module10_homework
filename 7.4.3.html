@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задание 7.4.3</title>
+</head>
+<body>
+  <script>
+    
+    const myReduce = (array, accumulatorFn, initialValue) => {
+      let accumulator = initialValue;
+
+      for(let i = 0; i < array.length; i++) {
+        accumulator = accumulatorFn(accumulator,array[i]);
+      }
+      return accumulator; // Возвращаем итоговое значение аккумулятора
+  };
+
+
+    const array = [1, 2, 3, 4, 5];
+
+// Функция-аккумулятор для суммирования элементов массива
+const sumReducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// Вызов myReduce для суммирования элементов массива
+const sum = myReduce(array, sumReducer, 0);
+console.log(sum); // Выведет: 15 (1 + 2 + 3 + 4 + 5)
+  
+  </script>
+</body>
+</html>
